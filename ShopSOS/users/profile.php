@@ -25,7 +25,7 @@
         crossorigin="anonymous" 
         referrerpolicy="no-referrer" />
     <!---css--->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
         body{
             overflow-x: hidden;
@@ -38,47 +38,30 @@
     <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-    <img src="./images/logo.jpg" alt="" class="logo">
+    <img src="../images/logo.jpg" alt="" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item px-5">
           <a class="nav-link active btn" aria-current="page" href="../index.php">Trang chủ</a>
         </li>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Hãng giày
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item"></a>
-            <?php
-              getcategories();
-            ?>
-            </li>
-          </ul>
-        </div>
-        <li class="nav-item">
+        <li class="nav-item px-5">
           <a class="nav-link rounded-pill bg-success" href="../display_all.php">Sản phẩm</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item px-5">
           <a class="nav-link rounded-pill bg-success" href="profile.php">Tài khoản</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item px-5">
           <a class="nav-link" href="../cart.php">Giỏ hàng <i class="fa-solid fa-cart-shopping"></i>
           <sup><?php cart_item();?></sup></a>
         </li>
-        <li class="nav-item"> 
+        <li class="nav-item px-5"> 
           <a class="nav-link" href="#">Hóa đơn giỏ hàng: <?php total_cart_price();?>đ</a>
         </li>
       </ul>
-      <form class="d-flex" action="../search_product.php" method="get">
-        <input class="form-control me-2" type="search" placeholder="Nhập sản phẩm cần tìm" 
-        aria-label="Search" name="search_data">
-        <input type="submit" value="Tìm" class="btn btn-outline-dark" name="search_data_product">
-      </form>
     </div> 
   </div>
 </nav>
@@ -106,36 +89,12 @@
           </li>";
           }else{
             echo "<li class='nav-item'>
-            <a class='nav-link' href='./users/logout.php'>Logout</a>
+            <a class='nav-link' href='logout.php'>Logout</a>
           </li>";
           }
         ?>
         </ul>
     </nav>
-
-  <!--<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="4000">
-        <img src="./images/anhbia1.png" class="anhbia" alt="anhbia">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-    </div>  
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>-->
   
   <!--- --->
     <div class="bg-light">
@@ -146,26 +105,37 @@
 
     <div class="row">
         <div class="col-md-2">
-            <ul class="navbar-nav bg-secondary text-center">
+            <ul class="navbar-nav bg-secondary">
                 <li class="nav-item bg-info">
-                    <a class="nav-link text-light" href="#">Tài khoản của bạn</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php">Đơn hàng chờ duyệt</a>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Tài khoản của bạn</span></a>
+                </li> 
+                <li class="nav-item text-light">
+                <a class="nav-link" href="profile.php">
+                    <i class="fas fa-fw fa-archive py-2"></i>
+                    <span>Đơn hàng chờ duyệt</span></a>
                 </li>   
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php?edit_account">Chỉnh sửa tài khoản</a>
-                </li>  
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php?my_orders">Đơn hàng của bạn</a>
-                </li>  
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="profile.php?delete_account">Xóa tài khoản</a>
-                </li>  
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="logout.php">Đăng xuất</a>
-                </li>  
+                <li class="nav-item text-light">
+                <a class="nav-link" href="profile.php?edit_account">
+                    <i class="fas fa-fw fa-user py-2"></i>
+                    <span>Chỉnh sửa tài khoản</span></a>
+                </li>
+                <li class="nav-item text-light">
+                <a class="nav-link" href="profile.php?my_orders">
+                    <i class="fas fa-fw fa-box py-2"></i>
+                    <span>Tất cả đơn hàng</span></a>
+                </li>
+                <li class="nav-item text-light">
+                <a class="nav-link" href="profile.php?delete_account">
+                    <i class="fa-solid fa-trash py-2"></i>
+                    <span>Xóa tài khoản</span></a>
+                </li> 
+                <li class="nav-item text-light">
+                <a class="nav-link" href="logout.php">
+                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                    <span>Đăng xuất</span></a>
+                </li> 
             </ul>
 
         </div>

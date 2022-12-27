@@ -116,6 +116,7 @@
             echo "<script>alert('Sản phẩm đã có trong giỏ hàng')</script>";
             echo "<script>window.open('checkout.php','_self')</script>";
         }else{
+            echo "<script>alert('Đăng ký thành công, vui lòng đăng nhập để sử dụng')</script>";
             echo "<script>window.open('../index.php','_self')</script>";
         }
     }
